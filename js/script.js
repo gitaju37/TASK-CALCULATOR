@@ -23,11 +23,16 @@ function clearDisplay() {
 
 function deleteLastChar() {
   let display = document.getElementById( 'result' );
- 
-  if ( value.length > 1 ) {
-    display.value = display.value.slice( 0, 1 );
+  var displayValue = display.value.toString()
+
+  if ( displayValue.length > 1 ) {
+    var splitDisplayValue = displayValue.split( "" )
+    splitDisplayValue.pop()
+
+    var joinDisplayValue = splitDisplayValue.join( "" )
+    display.value = joinDisplayValue
   } else {
-    display.value = '0';
+    display.value = '';
   }
 }
 function calculateResult() {
